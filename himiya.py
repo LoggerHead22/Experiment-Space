@@ -92,13 +92,13 @@ def make_unique(numbers, properties):
 
 
 numbers = []
-with open('C:/Users/Logge/OneDrive/Рабочий стол/Chains/Experiment-Space/DB_SOIL/matrk2m1.txt') as file:
+with open('DB_SOIL/matrk2m1.txt') as file:
     for line in file.readlines():
         if line.isspace(): break
         numbers.append(list(map(float, line.split())))
 
 properties = []
-with open('C:/Users/Logge/OneDrive/Рабочий стол/Chains/SOIL/soil-1-1.set') as file:
+with open('DB_SOIL/SOIL/soil.set') as file:
     for line in file.readlines():
         if line.startswith('A3'):
             properties.append(float(line.split()[1]))
