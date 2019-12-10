@@ -51,18 +51,19 @@ def get_properties(path):
                 ret[-1].append(line.split()[1])
     return ret
 
-for db in find_db_folders('.'):
-    set_file = find_set_file(db)
-    
-    with open(os.path.join(db, 'properties.txt'), 'w') as file:
-        sizes = []
-        for matr_file in find_matr_files(db):
-            file_name = os.path.split(matr_file)[1]
-            size = get_matr_size(matr_file)
-            sizes.append(f'{file_name} - {size}')
-        file.write('\n'.join(sizes))
+if __name__ == '__main__':
+    for db in find_db_folders('.'):
+        set_file = find_set_file(db)
+        
+        with open(os.path.join(db, 'properties.txt'), 'w') as file:
+            sizes = []
+            for matr_file in find_matr_files(db):
+                file_name = os.path.split(matr_file)[1]
+                size = get_matr_size(matr_file)
+                sizes.append(f'{file_name} - {size}')
+            file.write('\n'.join(sizes))
 
-        file.write('\n\n')
+            file.write('\n\n')
 
-        for property_ in get_properties(set_file):
-            file.write(' '.join(property_) + '\n')
+            for property_ in get_properties(set_file):
+                file.write(' '.join(property_) + '\n')
